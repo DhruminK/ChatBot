@@ -19,9 +19,12 @@ function l_done(l_c){
 
 	app.post("/", getRep);
 
-	app.listen(8000, function(){
-		console.log("Listening on Port : 8000");
-	});
+	app.set('port', process.env.PORT || 8000);
+
+	var server = app.listen(app.get('port'), function(){
+	console.log('Express Server Listening on Port ' +server.address().port);
+
+});
 }
 
 function l_err(l_c , err)
